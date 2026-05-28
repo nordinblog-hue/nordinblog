@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Queue System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; text-align:center; padding:20px; }
+    input { padding:10px; width:80%; margin:10px; }
+    button { padding:12px 20px; font-size:16px; }
+    .box { margin-top:20px; font-size:20px; }
+  </style>
+</head>
+
+<body>
+
+<h1>QUEUE SYSTEM</h1>
+
+<input id="nama" placeholder="Masukkan nama">
+<br>
+
+<button onclick="ambilQueue()">AMBIL NOMBOR</button>
+
+<div class="box" id="result"></div>
+
+<script>
+const API = "PASTE_LINK_APPS_SCRIPT_SINI";
+
+function ambilQueue() {
+  const nama = document.getElementById("nama").value;
+
+  fetch(API + "?action=add&nama=" + nama)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("result").innerHTML =
+        "NOMBOR ANDA: " + data.queue;
+    })
+    .catch(err => {
+      document.getElementById("result").innerHTML =
+        "ERROR SYSTEM";
+    });
+}
+</script>
+
+</body>
+</html>
