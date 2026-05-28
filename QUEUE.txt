@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Queue System</title>
+</head>
+<body>
+
+<h1>Ambil Nombor Giliran</h1>
+
+<input type="text" id="nama" placeholder="Nama">
+<button onclick="ambilQueue()">Ambil Queue</button>
+
+<h2 id="result"></h2>
+
+<script>
+const API = "PASTE_URL_APPS_SCRIPT_SINI";
+
+function ambilQueue() {
+  const nama = document.getElementById('nama').value;
+
+  fetch(API + '?action=add&nama=' + nama)
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('result').innerHTML =
+        'Nombor Anda: ' + data.queue;
+    });
+}
+</script>
+
+</body>
+</html>
