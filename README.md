@@ -1,0 +1,2 @@
+# nordinblog
+QUEUE SYSTEM
